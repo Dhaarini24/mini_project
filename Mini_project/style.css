@@ -1,0 +1,88 @@
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+    background-image: url('bg.jpg'); /* Replace with your actual image URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Make background image fixed during scroll */
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    background-color: #36454F; /* Charcoal Grey */
+    color: #FFFFFF; /* Pure White */
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    z-index: 1000; /* Ensure navbar stays on top */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.navbar a {
+    float: right;
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 14px 24px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.navbar a:hover, .navbar a:focus {
+    background-color: #87CEEB; /* Sky Blue */
+    color: #222; /* Darken text slightly on hover */
+}
+
+.content {
+    margin-top: 80px; /* Adjust top margin to accommodate fixed navbar */
+    text-align: center;
+    color: #333;
+    padding: 10px 20px; /* Reduced padding for a snug fit */
+    font-size: 24px; /* Maintaining font size for visibility */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    width: 50%; /* Decreased width for a smaller content area */
+    min-width: 300px; /* Minimum width to ensure usability */
+    margin: 80px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for content box */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+}
+
+
+h1 {
+    color: #B7410E; /* Rust Red */
+    font-size: 36px; /* Larger font size for main heading */
+    margin-bottom: 20px; /* Spacing below heading */
+}
+
+.button {
+    background-color: #FFDA03; /* Sunflower Yellow */
+    color: #333;
+    border: none;
+    padding: 12px 24px; /* Larger button for better clickability */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px; /* Larger font size for better visibility */
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px; /* More rounded corners for buttons */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for 3D effect */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.button:hover {
+    background-color: #FFD700; /* Gold */
+    transform: translateY(-2px); /* Slight raise effect on hover */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Deeper shadow on hover for 3D effect */
+}
