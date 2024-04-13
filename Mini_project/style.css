@@ -43,7 +43,7 @@ body, html {
     background-repeat: no-repeat;
     height: 100vh; /* Full viewport height */
     width: 100%;
-    margin: 0; /* Remove margin */
+    margin: 20px 0; /* Remove margin */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,14 +57,19 @@ body, html {
     color: #333;
     padding: 20px 40px; /* Increased padding for better layout */
     font-size: 24px; /* Maintaining font size for visibility */
-    background-color: #ffffff; /* Pure white background */
+   
     border-radius: 15px; /* More pronounced rounded corners for a softer look */
     width: 40%; /* Adjust width to fit content snugly */
     min-width: 300px; /* Minimum width to ensure usability */
     margin: 80px auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Soft but more pronounced shadow for depth */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border for refined edges */
+  
+  
     transition: all 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transitions for hover effects */
+    background: rgba( 255, 255, 255, 0.1 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 11px );
+-webkit-backdrop-filter: blur( 11px );
+border-radius: 10px;
 }
 
 .content:hover {
