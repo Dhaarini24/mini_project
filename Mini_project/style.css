@@ -7,14 +7,6 @@ body, html {
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-body {
-    background-image: url('bg.jpg'); /* Replace with your actual image URL */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Make background image fixed during scroll */
-    background-repeat: no-repeat;
-}
-
 .navbar {
     background-color: #36454F; /* Charcoal Grey */
     color: #FFFFFF; /* Pure White */
@@ -42,47 +34,122 @@ body {
     background-color: #87CEEB; /* Sky Blue */
     color: #222; /* Darken text slightly on hover */
 }
+.background {
+    background-image: url('bg.jpg'); /* Make sure the path is correct */
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Ensures the background scrolls with the content */
+    background-repeat: no-repeat;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    margin: 0; /* Remove margin */
+}
+
+
 
 .content {
     margin-top: 80px; /* Adjust top margin to accommodate fixed navbar */
     text-align: center;
     color: #333;
-    padding: 10px 20px; /* Reduced padding for a snug fit */
+    padding: 20px 40px; /* Increased padding for better layout */
     font-size: 24px; /* Maintaining font size for visibility */
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    width: 50%; /* Decreased width for a smaller content area */
+    background-color: #ffffff; /* Pure white background */
+    border-radius: 15px; /* More pronounced rounded corners for a softer look */
+    width: 40%; /* Adjust width to fit content snugly */
     min-width: 300px; /* Minimum width to ensure usability */
     margin: 80px auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for content box */
-    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Soft but more pronounced shadow for depth */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border for refined edges */
+    transition: all 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transitions for hover effects */
 }
 
+.content:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25); /* Increased shadow on hover for a dynamic effect */
+}
 
 h1 {
     color: #B7410E; /* Rust Red */
     font-size: 36px; /* Larger font size for main heading */
-    margin-bottom: 20px; /* Spacing below heading */
+    font-weight: bold; /* Bold for emphasis */
+    margin-bottom: 30px; /* Increased spacing below heading */
 }
 
 .button {
     background-color: #FFDA03; /* Sunflower Yellow */
     color: #333;
     border: none;
-    padding: 12px 24px; /* Larger button for better clickability */
+    padding: 15px 30px; /* Larger padding for a more clickable area */
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px; /* Larger font size for better visibility */
-    margin: 4px 2px;
+    margin: 10px 5px; /* Adjusted margins for Aspacing */
     cursor: pointer;
-    border-radius: 8px; /* More rounded corners for buttons */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for 3D effect */
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+    border-radius: 10px; /* More rounded corners for buttons */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2); /* Subtle shadow for 3D effect */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transitions for hover effects */
 }
 
 .button:hover {
     background-color: #FFD700; /* Gold */
-    transform: translateY(-2px); /* Slight raise effect on hover */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Deeper shadow on hover for 3D effect */
+    transform: scale(1.05); /* Slight enlargement effect on hover */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3); /* Deeper shadow on hover for 3D effect */
+}
+.modules {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    width: 90%; /* Adjust based on layout preference */
+}
+
+.module {
+    text-align: center;
+    width: 200px; /* Set width for each module */
+    padding: 20px;
+    margin: 10px;
+    background-color: #f0f0f0; /* Light grey background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.module:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.module i {
+    font-size: 40px; /* Larger icons */
+    margin-bottom: 10px;
+    color: #36454F; /* Matching the navbar color */
+}
+
+.module h2 {
+    color: #6B8E23; /* Olive Green */
+}
+
+.module p {
+    font-size: 14px;
+    color: #333;
+}
+
+h3 {
+    color: #B7410E; /* Rust Red to maintain theme consistency */
+    padding: 20px 40px; /* Adequate padding around the text */
+    font-size: 32px; /* Slightly smaller than h1 for hierarchical visual distinction */
+    font-weight: bold; /* Bold for emphasis */
+    margin-bottom: 20px; /* Adjusted spacing below the heading */
+    background-color: #ffffff; /* Pure white background to highlight the text */
+    border-radius: 8px; /* Rounded corners for a softer appearance */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease-in-out; /* Smooth transition for effects */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow to make text pop out */
+}
+
+h3:hover {
+    transform: scale(1.05); /* Slight scale up to provide feedback on hover */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover for a dynamic effect */
+    background-color: #F5F5DC; /* A light beige background on hover for gentle highlight */
 }
