@@ -6,288 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriSphere</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Itim&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Itim&family=Katibeh&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-
-
-        }
-
-        body {
-
-            font-family: "Itim", cursive;
-        }
-
-        .sticky {
-            position: fixed;
-            top: -2px !important;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        header {
-            width: 100%;
-
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-
-        }
-
-        header .top_bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: end;
-            align-items: center;
-            width: 100%;
-            transition: all 0.8s ease-in-out;
-            background-color: #003C43;
-            color: #ffffff;
-            padding: 4px 0px;
-        }
-
-        header .top_bar span {
-            margin: 0 20px 0 0;
-            font-size: 18px;
-        }
-
-        select {
-            font-size: 14px;
-            background-color: #E3FEF7;
-            padding: 4px;
-            border-radius: 10px;
-        }
-
-        select option {
-            font-size: 16px;
-            padding: 8px;
-        }
-
-        header .top_bar span button {
-            cursor: pointer;
-            padding: 4px;
-            background-color: #E3FEF7;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        header .bottom_bar {
-            position: fixed;
-            transition: all 0.4s ease-in-out;
-            top: 38px;
-            left: 0;
-            width: 100%;
-            margin: 2px 0;
-
-            height: 70px;
-            padding: 0 20px;
-
-            background-color: #003C43;
-
-            gap: 289px;
-            display: flex;
-
-
-        }
-
-        header .bottom_bar .logo {
-            font-family: "Katibeh", serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 42px;
-            color: #E3FEF7;
-        }
-
-        header .bottom_bar .nav ul {
-            height: 70px;
-            position: absolute;
-            right: 50px;
-            display: flex;
-            align-items: center;
-            list-style: none;
-            gap: 100px;
-            color: #E3FEF7;
-        }
-
-        .hero_section {
-            margin: 109px 0 0 0;
-            height: 85vh;
-            background-image: url('assets/image/bg.jpg');
-
-            background-position: center;
-
-            background-size: cover;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: start;
-        }
-
-        .hero_section span {
-            margin: 0 40px;
-            width: 624px;
-            text-shadow: 2px 2px 4px #000000;
-            color: #E3FEF7;
-            font-family: "Katibeh", serif;
-            font-size: 53px;
-        }
-
-        .button {
-            display: flex;
-            align-items: center;
-            margin: 50px 40px;
-            gap: 20px;
-        }
-
-        .button button {
-            display: flex;
-            cursor: pointer;
-            flex-direction: row;
-            font-size: 18px;
-            border-radius: 26px;
-            width: 166px;
-            justify-content: center;
-            align-items: center;
-            background-color: #E3FEF7;
-            border: none;
-            padding: 10px;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .button button:hover {
-
-            box-shadow: inset 0px 0px 2px #000000;
-        }
-
-        .anouncement {
-            background-color: #77B0AA;
-            color: #E3FEF7;
-            height: 80vh;
-            width: 100%;
-            display: flex;
-
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-
-
-        }
-
-        .left {
-            display: block;
-            margin: 0 0 0 40px;
-            font-size: 48px;
-            width: 30%;
-
-
-        }
-
-        .left span {
-            display: block;
-            width: 90%;
-            text-align: right;
-        }
-
-        .right {
-            display: flex;
-            width: 60%;
-            flex-direction: column;
-        }
-
-        .top {
-            width: 642px;
-            font-size: 32px;
-        }
-
-        .bottom {
-            margin: 15px 0;
-            font-size: 24px;
-            width: 100%;
-        }
-
-        marquee {
-            background-color: #E3FEF7;
-            padding: 10px 0;
-        }
-
-        marquee span {
-            display: flex;
-            align-items: center;
-            margin: 0;padding: 0;
-        }
-        .services{
-            height: 60vh;
-            width: 100%;
-            background-color: #77B0AA;
-          padding: 0 20px;
-        }
-
-        .swiper {
-          
-            width: 100%;
-            height: 35vh;
-            
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .card{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 10px;
-            align-items: center;
-        }
-    </style>
+   <link rel="stylesheet" href="assets/style/style.css">
+   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script> 
+    $(function(){
+      $("#includedContent").load("header.html"); 
+      $("#footer").load("footer.html"); 
+    });
+    </script> 
+   <style>
+    .hero_section {
+        margin: 109px 0 0 0;
+        height: 85vh;
+        background-image: url('assets/image/bg.jpg');
+    
+        background-position: center;
+    
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+   </style>
 </head>
 
 <body>
-    <header>
-        <div class="top_bar">
-            <span>DAIL FREE : 1234567890</span>
-            <span>Language :
-                <select name="" id="">
-                    <option value="english">English</option>
-                    <option value="kanada">kannada</option>
-                </select>
-            </span>
-            <span> <button>Login &nbsp;<img src="assets\image\image 7.png" alt=""></button></span>
-        </div>
-        <div class="bottom_bar">
-            <div class="logo">Agrisphere</div>
-            <div class="nav">
-                <ul>
-                    <li>Home</li>
-                    <li>Service</li>
-                    <li>About us</li>
-                    <li>Contact us</li>
-                </ul>
-            </div>
-        </div>
-    </header>
+    <div id="includedContent"></div>
     <div class="hero_section">
         <span>Empowering Farmers, Cultivating Success: Agrisphere - Your Ultimate Agricultural Hub!</span>
         <div class="button">
-            <button> <img src="assets/image/image 2.png" alt="">&nbsp;&nbsp;&nbsp;Contact us</button>
-            <button> <img src="assets/image/image 1.png" alt="">&nbsp;&nbsp;&nbsp;About us</button>
+            <button> <img src="assets/image/image 1.png" alt="">&nbsp;&nbsp;&nbsp;Contact us</button>
+            <button> <img src="assets/image/image 2.png" alt="">&nbsp;&nbsp;&nbsp;About us</button>
         </div>
     </div>
     <div class="anouncement">
@@ -305,62 +56,118 @@
                 width="30px"> &nbsp; State Scholarship Portal Helpline -1902 &nbsp;&nbsp;&nbsp;&nbsp; <img
                 src="assets/image/point.png" alt="" width="30px"> &nbsp; Raitha Call Center Toll Free No: 1800 425
             3553</span></marquee>
-    <marquee behavior="scroll" direction="right" scrollamount="13"> <span> <img src="assets\image\phone-call.png" alt=""
+    <marquee behavior="scroll" direction="right" scrollamount="10"> <span> <img src="assets\image\phone-call.png" alt=""
                 width="20px"> &nbsp; Call 1902 to register your grievance (if any) regarding any scheme / service
             delivery of Government of Karnataka  &nbsp;&nbsp;&nbsp;&nbsp; <img src="assets/image/point.png" alt=""
                 width="30px"> &nbsp; Raitha Call Center Toll Free No: 1800 425 3553</span></marquee>
-    <div class="services">
-        <span>services</span>
+    <div class="posters">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="content"> Crop Prediction</div>
-                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+                <div class="swiper-slide"><img src="assets/image/Group 4.png" alt=""></div>
+                <div class="swiper-slide"><img src="https://cbpssubscriber.mygov.in/assets/uploads/3rpbtfC38B9muoRQ?5" alt=""></div>
+                <div class="swiper-slide"><img src="https://pmkisan.gov.in/new_images/PMKisanBanner.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://www.azquotes.com/picture-quotes/quote-weeding-is-as-necessary-to-agriculture-as-sowing-mahatma-gandhi-127-25-90.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://st1.latestly.com/wp-content/uploads/2019/12/Kisan-Diwas-Quotes-Greetings.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://www.azquotes.com/picture-quotes/quote-i-dream-of-a-digital-india-where-farmers-are-empowered-with-real-time-information-to-narendra-modi-130-41-50.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://santrampalji-files.sgp1.cdn.digitaloceanspaces.com/2022/12/National-Farmers-Day-2022-Date-History-Facts-Quotes-Speech.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://www.azquotes.com/picture-quotes/quote-most-things-except-agriculture-can-wait-jawaharlal-nehru-112-41-24.jpg" alt=""></div>
+                
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
 
-                    </div>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                direction: "vertical",
+                loop: true,
+                autoplay: {
+                    delay: 3000, // Adjust the delay (in milliseconds) between slides
+                    disableOnInteraction: false, // Keep autoplay running even when the user interacts with the slider
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                effect: "slide", // You can change this to other effects like 'fade', 'cube', 'coverflow', etc.
+                speed: 800, // Adjust the speed of the slide transition (in milliseconds)
+                grabCursor: true, // Show grab cursor while dragging slider
+            });
+        </script>
+    </div>
+    <div class="services" id="services">
+        <span class="heading">Services</span>
+        <div class="swiper services_slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" id="swiper-slide">
+                    <a href="">
+                        <div class="card">
+                            <div class="content"> Crop Prediction</div>
+                            <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+
+                        </div>
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <div class="card">
-                        <div class="content"> Crop Prediction</div>
-                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+                    <a href="">
+                        <div class="card">
+                            <div class="content"> Disease Prediction</div>
+                            <div class="img"><img src="assets/image/diseas pre.png" alt=""></div>
 
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <div class="card">
-                        <div class="content"> Crop Prediction</div>
-                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+                    <a href="">
+                        <div class="card">
+                            <div class="content"> Soil Analysis</div>
+                            <div class="img"><img src="assets/image/soil analysis.png" alt=""></div>
 
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <div class="card">
-                        <div class="content"> Crop Prediction</div>
-                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
-
-                    </div>
+                    <a href="">
+                        <div class="card">
+                            <div class="content"> Market Trends and Finance</div>
+                            <div class="img"><img src="assets/image/market_trend.png" alt=""></div>
+                            <div class="comming_soon"> </div>
+                            <div class="comming_button"><img src="assets/image/lock.png" alt=""> Coming Soon...</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <div class="card">
-                        <div class="content"> Crop Prediction</div>
-                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
-
-                    </div>
+                    <a href="">
+                        <div class="card">
+                            <div class="content"> Weather/climate prediction</div>
+                            <div class="img"><img src="assets/image/wethere_pred.png" alt=""></div>
+                            <div class="comming_soon"> </div>
+                            <div class="comming_button"><img src="assets/image/lock.png" alt=""> Coming Soon...</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <div class="card">
-                        <div class="content"> Crop Prediction</div>
-                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
-
-                    </div>
+                    <a href="">
+                        <div class="card">
+                            <div class="content"> training and education portals</div>
+                            <div class="img"><img src="assets/image/education.png" alt=""></div>
+                            <div class="comming_soon"> </div>
+                            <div class="comming_button"><img src="assets/image/lock.png" alt=""> Coming Soon...</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <div class="card">
-                        <div class="content"> Crop Prediction</div>
-                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
-
-                    </div>
+                    <a href="">
+                        <div class="card">
+                            <div class="content"> resources sharing / equipments</div>
+                            <div class="img"><img src="https://cdn-icons-png.flaticon.com/512/1681/1681286.png" alt=""></div>
+                            <div class="comming_soon"> </div>
+                            <div class="comming_button"><img src="assets/image/lock.png" alt=""> Coming Soon...</div>
+                        </div>
+                    </a>
                 </div>
 
             </div>
@@ -372,10 +179,10 @@
 
         <!-- Initialize Swiper -->
         <script>
-            var swiper = new Swiper(".mySwiper", {
+            var swiper = new Swiper(".services_slider", {
                 slidesPerView: 4,
-                spaceBetween: 30,
-                loop:true,
+                spaceBetween: 20,
+                loop: true,
                 freeMode: true,
                 pagination: {
                     el: ".swiper-pagination",
@@ -384,6 +191,8 @@
             });
         </script>
     </div>
+    
+  <div id="footer"></div>
     <script>
         window.addEventListener('scroll', function () {
             var topBar = document.querySelector('.top_bar');
@@ -397,6 +206,8 @@
             }
         });
     </script>
+    <script src="jquery.js"></script> 
+    
 </body>
 
 </html>
