@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriSphere</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Itim&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Itim&family=Katibeh&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap');
@@ -21,13 +22,15 @@
 
             font-family: "Itim", cursive;
         }
+
         .sticky {
             position: fixed;
-            top: -2px!important;
+            top: -2px !important;
             left: 0;
             width: 100%;
             z-index: 1000;
         }
+
         header {
             width: 100%;
 
@@ -66,7 +69,7 @@
         }
 
         select option {
-            font-size: 18px;
+            font-size: 16px;
             padding: 8px;
         }
 
@@ -123,7 +126,7 @@
             background-image: url('assets/image/bg.jpg');
 
             background-position: center;
-          
+
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
@@ -157,14 +160,15 @@
             width: 166px;
             justify-content: center;
             align-items: center;
-            background-color: #77B0AA;
-           border: none;
+            background-color: #E3FEF7;
+            border: none;
             padding: 10px;
             transition: all 0.2s ease-in-out;
         }
-        .button button:hover{
-        
-            box-shadow: inset 0px 0px 10px #000000;
+
+        .button button:hover {
+
+            box-shadow: inset 0px 0px 2px #000000;
         }
 
         .anouncement {
@@ -177,7 +181,7 @@
             justify-content: center;
             align-items: center;
             padding: 40px;
-            
+
 
         }
 
@@ -186,10 +190,11 @@
             margin: 0 0 0 40px;
             font-size: 48px;
             width: 30%;
-            
-         
+
+
         }
-        .left span{
+
+        .left span {
             display: block;
             width: 90%;
             text-align: right;
@@ -197,27 +202,60 @@
 
         .right {
             display: flex;
-           width: 60%;
+            width: 60%;
             flex-direction: column;
         }
-        .top{
+
+        .top {
             width: 642px;
             font-size: 32px;
         }
-        .bottom{
+
+        .bottom {
             margin: 15px 0;
             font-size: 24px;
             width: 100%;
         }
-       marquee{
-        background-color: #E3FEF7;
-        padding: 10px 0 ;
-       }
-        marquee span{
+
+        marquee {
+            background-color: #E3FEF7;
+            padding: 10px 0;
+        }
+
+        marquee span {
             display: flex;
             align-items: center;
+            margin: 0;padding: 0;
         }
-       
+        .services{
+            height: 60vh;
+            width: 100%;
+            background-color: #77B0AA;
+          padding: 0 20px;
+        }
+
+        .swiper {
+          
+            width: 100%;
+            height: 35vh;
+            
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -263,9 +301,89 @@
                 programs and ensure safety and compliance within your organization.</div>
         </div>
     </div>
-    <marquee  behavior="scroll" direction="left" scrollamount="10"> <span> <img src="assets/image/point.png" alt="" width="30px"> &nbsp; State Scholarship Portal Helpline -1902     &nbsp;&nbsp;&nbsp;&nbsp;          <img src="assets/image/point.png" alt="" width="30px"> &nbsp;  Raitha Call Center Toll Free No: 1800 425 3553</span></marquee>
-    <marquee behavior="scroll" direction="right" scrollamount="13"> <span> <img src="assets\image\phone-call.png" alt="" width="20px"> &nbsp; Call 1902 to register your grievance (if any) regarding any scheme / service delivery of Government of Karnataka     &nbsp;&nbsp;&nbsp;&nbsp;          <img src="assets/image/point.png" alt="" width="30px"> &nbsp;  Raitha Call Center Toll Free No: 1800 425 3553</span></marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="10"> <span> <img src="assets/image/point.png" alt=""
+                width="30px"> &nbsp; State Scholarship Portal Helpline -1902 &nbsp;&nbsp;&nbsp;&nbsp; <img
+                src="assets/image/point.png" alt="" width="30px"> &nbsp; Raitha Call Center Toll Free No: 1800 425
+            3553</span></marquee>
+    <marquee behavior="scroll" direction="right" scrollamount="13"> <span> <img src="assets\image\phone-call.png" alt=""
+                width="20px"> &nbsp; Call 1902 to register your grievance (if any) regarding any scheme / service
+            delivery of Government of Karnataka  &nbsp;&nbsp;&nbsp;&nbsp; <img src="assets/image/point.png" alt=""
+                width="30px"> &nbsp; Raitha Call Center Toll Free No: 1800 425 3553</span></marquee>
+    <div class="services">
+        <span>services</span>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="content"> Crop Prediction</div>
+                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
 
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="content"> Crop Prediction</div>
+                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="content"> Crop Prediction</div>
+                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="content"> Crop Prediction</div>
+                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="content"> Crop Prediction</div>
+                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="content"> Crop Prediction</div>
+                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="content"> Crop Prediction</div>
+                        <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                loop:true,
+                freeMode: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        </script>
+    </div>
     <script>
         window.addEventListener('scroll', function () {
             var topBar = document.querySelector('.top_bar');
