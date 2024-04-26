@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crop Recommendation</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -43,7 +44,7 @@
             width: 85%;
             /* Full width minus padding and border */
             padding: 10px;
-            margin: 8px 0;
+            
             display: inline-block;
             border: 1px solid #003C43;
             /* Dark border for inputs */
@@ -93,7 +94,16 @@
             flex: 1;
         }
         
-        
+        .swiper {
+            width: 100%;
+            height: 100%;
+          }
+      
+          
+          .swiper img{
+            width: 100%;
+            height: 50vh;
+          }
         
     </style>
 
@@ -104,6 +114,38 @@
     <div class="header">
         <h1>Crop Recommendation System</h1>
     </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://raitamitra.karnataka.gov.in/storage/slids/1607505709.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="https://raitamitra.karnataka.gov.in/storage/slids/1607505804.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="https://raitamitra.karnataka.gov.in/storage/slids/1607505856.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="https://raitamitra.karnataka.gov.in/storage/slids/1607505887.jpg" alt=""></div>
+          <!-- <div class="swiper-slide"><img src="{{url_for('static' , filename='image/bg.jpg')}}" alt=""></div>
+          <div class="swiper-slide"><img src="{{url_for('static' , filename='image/bg.jpg')}}" alt=""></div>
+          <div class="swiper-slide"><img src="{{url_for('static' , filename='image/bg.jpg')}}" alt=""></div>
+          <div class="swiper-slide"><img src="{{url_for('static' , filename='image/bg.jpg')}}" alt=""></div>
+          <div class="swiper-slide"><img src="{{url_for('static' , filename='image/bg.jpg')}}" alt=""></div> -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    
+      <!-- Swiper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+            autoplay: {
+                delay: 2500, // Adjust the delay (in milliseconds) between slides
+                disableOnInteraction: false, // Keep autoplay running even when the user interacts with the slider
+            },
+          pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+          },
+        });
+      </script>
+   
     <form id="cropForm">
         <div class="input-row">
             <div class="input-container">

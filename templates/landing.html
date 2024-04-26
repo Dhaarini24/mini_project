@@ -7,7 +7,8 @@
     <title>AgriSphere</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
-
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
   
  
     <style>
@@ -30,16 +31,21 @@
 
 <body>
     {% include 'header.html'%}
-    <div class="hero_section">
-        <span>Empowering Farmers, Cultivating Success: Agrisphere - Your Ultimate Agricultural Hub!</span>
-        <div class="button">
-            <button> <img src="static/image/image 1.png" alt="">&nbsp;&nbsp;&nbsp;Contact us</button>
+    <div class="hero_section" >
+        <span data-aos="fade-up"
+        data-aos-duration="2000">Empowering Farmers, Cultivating Success: Agrisphere - Your Ultimate Agricultural Hub!</span>
+        <div class="button" >
+           <a href="contact"> <button> <img src="static/image/image 1.png" alt="">&nbsp;&nbsp;&nbsp;Contact us</button></a>
             <button> <img src="static/image/image 2.png" alt="">&nbsp;&nbsp;&nbsp;About us</button>
         </div>
     </div>
-    <div class="anouncement">
-        <div class="left"> <span> Enhancing compliance and business management</span></div>
-        <div class="right">
+    <div class="anouncement"  >
+        <div class="left" data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine" data-aos-duration="800"> <span> Enhancing compliance and business management</span></div>
+        <div class="right" data-aos="fade-left"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine" data-aos-duration="800">
             <div class="top">HEALTH AND SAFETY | FOOD SAFETY AND DEFENSE | PREVENTIVE MAINTENANCE</div>
             <div class="bottom">AgriSphere is the agriculture industry’s leading partner for professional consulting
                 services and cloud-based software solutions that enhance compliance and support improved management and
@@ -109,7 +115,7 @@
         <span class="heading">Services</span>
         <div class="swiper services_slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" id="swiper-slide">
+                <div class="swiper-slide" id="swiper-slide" data-aos="fade-down-right" data-aos-duration="2000">
                     <a href="suggestion">
                         <div class="card">
                             <div class="content"> Crop Prediction</div>
@@ -118,7 +124,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-down-right" data-aos-duration="2000">
                     <a href="">
                         <div class="card">
                             <div class="content"> Disease Prediction</div>
@@ -127,7 +133,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-down-right" data-aos-duration="2000">
                     <a href="">
                         <div class="card">
                             <div class="content"> Soil Analysis</div>
@@ -136,7 +142,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-down-right" data-aos-duration="2000">
                     <a href="">
                         <div class="card">
                             <div class="content"> Market Trends and Finance</div>
@@ -146,7 +152,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-down-right" data-aos-duration="2000">
                     <a href="">
                         <div class="card">
                             <div class="content"> Weather/climate prediction</div>
@@ -156,7 +162,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-down-right" data-aos-duration="2000">
                     <a href="">
                         <div class="card">
                             <div class="content"> training and education portals</div>
@@ -166,7 +172,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-down-right" data-aos-duration="2000">
                     <a href="">
                         <div class="card">
                             <div class="content"> resources sharing / equipments</div>
@@ -214,7 +220,7 @@
             }
         });
     </script>
-    <script src="jquery.js"></script>
+    <script>AOS.init();</script> 
 
 </body>
 
