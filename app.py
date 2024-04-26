@@ -21,6 +21,9 @@ def index():
 def contact():
     return render_template('contact_us.html')
 
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
 @app.route('/suggestion')
 def suggestion():
     return render_template('index.html')
