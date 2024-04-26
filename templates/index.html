@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #E3FEF7;
+            /* Lightest color for the background */
+            color: #003C43;
+            /* Darkest color for text */
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #003C43;
+            /* Darkest color for headers */
+        }
+
+        .header {
+            margin: 110px 0 20px 0;
+            text-align: center;
+        }
+
+        form {
+            background-color: #77B0AA;
+            /* Moderate cyan for the form background */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            width: 85%;
+            /* Full width minus padding and border */
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #003C43;
+            /* Dark border for inputs */
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+       .input-container  button {
+            background-color: #135D66;
+            /* Dark cyan for buttons */
+            margin: 50px 0 0 0 ;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003C43;
+            /* Darkest color for hover state */
+        }
+
+        label {
+            font-weight: bold;
+            color: #135D66;
+            
+            /* Dark cyan for labels */
+        }
+
+        .input-row {
+            margin-bottom: 20px;
+        }
+        
+        .input-row label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-row {
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        
+        .input-container {
+            flex: 1;
+        }
+        
+        
+        
+    </style>
+
+</head>
+
+<body>
+    {% include 'header.html'%}
+    <div class="header">
+        <h1>Crop Recommendation System</h1>
+    </div>
+    <form id="cropForm">
+        <div class="input-row">
+            <div class="input-container">
+                <label for="N">Nitrogen (N):</label><br>
+                <input type="number" id="N" required>
+            </div>
+            <div class="input-container">
+                <label for="P">Phosphorous (P):</label><br>
+                <input type="number" id="P" required>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-container">
+                <label for="K">Potassium (K):</label><br>
+                <input type="number" id="K" required>
+            </div>
+            <div class="input-container">
+                <label for="temperature">Temperature (in Celsius):</label><br>
+                <input type="number" id="temperature" required>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-container">
+                <label for="humidity">Humidity (%):</label><br>
+                <input type="number" id="humidity" required>
+            </div>
+            <div class="input-container">
+                <label for="ph">pH level:</label><br>
+                <input type="number" id="ph" required>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-container">
+                <label for="rainfall">Annual Rainfall (in mm):</label><br>
+                <input type="number" id="rainfall" required>
+               
+            </div>
+            <div class="input-container">
+             
+                <button type="button" id="button" onclick="predictCrop()">Predict Crop</button>
+               
+            </div>
+        </div>
+        
+        
+
+
+        
+    </form>
+    <h2 id="result"></h2>
+
+    <script>
+        function predictCrop() {
+            const formData = {
+                N: parseFloat(document.getElementById('N').value),
+                P: parseFloat(document.getElementById('P').value),
+                K: parseFloat(document.getElementById('K').value),
+                temperature: parseFloat(document.getElementById('temperature').value),
+                humidity: parseFloat(document.getElementById('humidity').value),
+                ph: parseFloat(document.getElementById('ph').value),
+                rainfall: parseFloat(document.getElementById('rainfall').value),
+            };
+
+            fetch('http://127.0.0.1:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = `Recommended Crop: ${data.crop}`;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+    {% include 'footer.html'%}
+    <script>
+        window.addEventListener('scroll', function () {
+            var topBar = document.querySelector('.top_bar');
+            var bottomBar = document.querySelector('.bottom_bar');
+            if (window.scrollY > 120) {
+                topBar.style.display = 'none';
+                bottomBar.classList.add('sticky');
+            } else {
+                topBar.style.display = 'flex';
+                bottomBar.classList.remove('sticky');
+            }
+        });
+    </script>
+</body>
+
+</html>

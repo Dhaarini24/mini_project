@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact US</title>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-   <script> 
-    $(function(){
-      $("#includedContent").load("header.html"); 
-    });
-    </script> 
-    <link rel="stylesheet" href="assets/style/style.css">
+ 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
 </head>
 <body>
-    <div id="includedContent"></div>
+    {%include 'header.html'%}
      <div class="contact_us">
         <div class="container d-flex justify-content-center align-items-center">
 	

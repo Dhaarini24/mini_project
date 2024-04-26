@@ -6,39 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriSphere</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-   <link rel="stylesheet" href="assets/style/style.css">
-   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-   <script> 
-    $(function(){
-      $("#includedContent").load("header.html"); 
-      $("#footer").load("footer.html"); 
-    });
-    </script> 
-   <style>
-    .hero_section {
-        margin: 109px 0 0 0;
-        height: 85vh;
-        background-image: url('assets/image/bg.jpg');
-    
-        background-position: center;
-    
-        background-size: cover;
-        background-repeat: no-repeat;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-    }
-   </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+
+  
+ 
+    <style>
+        .hero_section {
+            margin: 109px 0 0 0;
+            height: 85vh;
+            background-image: url('static/image/bg.jpg');
+
+            background-position: center;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="includedContent"></div>
+    {% include 'header.html'%}
     <div class="hero_section">
         <span>Empowering Farmers, Cultivating Success: Agrisphere - Your Ultimate Agricultural Hub!</span>
         <div class="button">
-            <button> <img src="assets/image/image 1.png" alt="">&nbsp;&nbsp;&nbsp;Contact us</button>
-            <button> <img src="assets/image/image 2.png" alt="">&nbsp;&nbsp;&nbsp;About us</button>
+            <button> <img src="static/image/image 1.png" alt="">&nbsp;&nbsp;&nbsp;Contact us</button>
+            <button> <img src="static/image/image 2.png" alt="">&nbsp;&nbsp;&nbsp;About us</button>
         </div>
     </div>
     <div class="anouncement">
@@ -52,26 +48,37 @@
                 programs and ensure safety and compliance within your organization.</div>
         </div>
     </div>
-    <marquee behavior="scroll" direction="left" scrollamount="10"> <span> <img src="assets/image/point.png" alt=""
+    <marquee behavior="scroll" direction="left" scrollamount="10"> <span> <img src="{{ url_for('static', filename='image/point.png') }}" alt=""
                 width="30px"> &nbsp; State Scholarship Portal Helpline -1902 &nbsp;&nbsp;&nbsp;&nbsp; <img
-                src="assets/image/point.png" alt="" width="30px"> &nbsp; Raitha Call Center Toll Free No: 1800 425
+                src="{{ url_for('static', filename='image/point.png') }}" alt="" width="30px"> &nbsp; Raitha Call Center Toll Free No: 1800 425
             3553</span></marquee>
-    <marquee behavior="scroll" direction="right" scrollamount="10"> <span> <img src="assets\image\phone-call.png" alt=""
+    <marquee behavior="scroll" direction="right" scrollamount="10"> <span> <img src="{{ url_for('static', filename='image/phone-call.png') }}" alt=""
                 width="20px"> &nbsp; Call 1902 to register your grievance (if any) regarding any scheme / service
             delivery of Government of Karnataka  &nbsp;&nbsp;&nbsp;&nbsp; <img src="assets/image/point.png" alt=""
                 width="30px"> &nbsp; Raitha Call Center Toll Free No: 1800 425 3553</span></marquee>
     <div class="posters">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="assets/image/Group 4.png" alt=""></div>
-                <div class="swiper-slide"><img src="https://cbpssubscriber.mygov.in/assets/uploads/3rpbtfC38B9muoRQ?5" alt=""></div>
+                <div class="swiper-slide"><img src=" {{ url_for('static', filename='image/Group 4.png') }}" alt=""></div>
+                <div class="swiper-slide"><img src="https://cbpssubscriber.mygov.in/assets/uploads/3rpbtfC38B9muoRQ?5"
+                        alt=""></div>
                 <div class="swiper-slide"><img src="https://pmkisan.gov.in/new_images/PMKisanBanner.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="https://www.azquotes.com/picture-quotes/quote-weeding-is-as-necessary-to-agriculture-as-sowing-mahatma-gandhi-127-25-90.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="https://st1.latestly.com/wp-content/uploads/2019/12/Kisan-Diwas-Quotes-Greetings.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="https://www.azquotes.com/picture-quotes/quote-i-dream-of-a-digital-india-where-farmers-are-empowered-with-real-time-information-to-narendra-modi-130-41-50.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="https://santrampalji-files.sgp1.cdn.digitaloceanspaces.com/2022/12/National-Farmers-Day-2022-Date-History-Facts-Quotes-Speech.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="https://www.azquotes.com/picture-quotes/quote-most-things-except-agriculture-can-wait-jawaharlal-nehru-112-41-24.jpg" alt=""></div>
-                
+                <div class="swiper-slide"><img
+                        src="https://www.azquotes.com/picture-quotes/quote-weeding-is-as-necessary-to-agriculture-as-sowing-mahatma-gandhi-127-25-90.jpg"
+                        alt=""></div>
+                <div class="swiper-slide"><img
+                        src="https://st1.latestly.com/wp-content/uploads/2019/12/Kisan-Diwas-Quotes-Greetings.jpg"
+                        alt=""></div>
+                <div class="swiper-slide"><img
+                        src="https://www.azquotes.com/picture-quotes/quote-i-dream-of-a-digital-india-where-farmers-are-empowered-with-real-time-information-to-narendra-modi-130-41-50.jpg"
+                        alt=""></div>
+                <div class="swiper-slide"><img
+                        src="https://santrampalji-files.sgp1.cdn.digitaloceanspaces.com/2022/12/National-Farmers-Day-2022-Date-History-Facts-Quotes-Speech.jpg"
+                        alt=""></div>
+                <div class="swiper-slide"><img
+                        src="https://www.azquotes.com/picture-quotes/quote-most-things-except-agriculture-can-wait-jawaharlal-nehru-112-41-24.jpg"
+                        alt=""></div>
+
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -103,10 +110,10 @@
         <div class="swiper services_slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" id="swiper-slide">
-                    <a href="">
+                    <a href="suggestion">
                         <div class="card">
                             <div class="content"> Crop Prediction</div>
-                            <div class="img"><img src="assets/image/crop pre.png" alt=""></div>
+                            <div class="img"><img src="{{ url_for('static', filename='image/crop pre.png') }}" alt=""></div>
 
                         </div>
                     </a>
@@ -115,7 +122,7 @@
                     <a href="">
                         <div class="card">
                             <div class="content"> Disease Prediction</div>
-                            <div class="img"><img src="assets/image/diseas pre.png" alt=""></div>
+                            <div class="img"><img src="{{ url_for('static', filename='image/diseas pre.png') }}" alt=""></div>
 
                         </div>
                     </a>
@@ -124,7 +131,7 @@
                     <a href="">
                         <div class="card">
                             <div class="content"> Soil Analysis</div>
-                            <div class="img"><img src="assets/image/soil analysis.png" alt=""></div>
+                            <div class="img"><img src="{{ url_for('static', filename='image/soil analysis.png') }}" alt=""></div>
 
                         </div>
                     </a>
@@ -133,9 +140,9 @@
                     <a href="">
                         <div class="card">
                             <div class="content"> Market Trends and Finance</div>
-                            <div class="img"><img src="assets/image/market_trend.png" alt=""></div>
+                            <div class="img"><img src="{{ url_for('static', filename='image/market_trend.png') }}" alt=""></div>
                             <div class="comming_soon"> </div>
-                            <div class="comming_button"><img src="assets/image/lock.png" alt=""> Coming Soon...</div>
+                            <div class="comming_button"><img src="{{ url_for('static', filename='image/lock.png') }}" alt=""> Coming Soon...</div>
                         </div>
                     </a>
                 </div>
@@ -143,9 +150,9 @@
                     <a href="">
                         <div class="card">
                             <div class="content"> Weather/climate prediction</div>
-                            <div class="img"><img src="assets/image/wethere_pred.png" alt=""></div>
+                            <div class="img"><img src="{{ url_for('static', filename='image/wethere_pred.png') }}" alt=""></div>
                             <div class="comming_soon"> </div>
-                            <div class="comming_button"><img src="assets/image/lock.png" alt=""> Coming Soon...</div>
+                            <div class="comming_button"><img src="{{ url_for('static', filename='image/lock.png') }}" alt=""> Coming Soon...</div>
                         </div>
                     </a>
                 </div>
@@ -153,9 +160,9 @@
                     <a href="">
                         <div class="card">
                             <div class="content"> training and education portals</div>
-                            <div class="img"><img src="assets/image/education.png" alt=""></div>
+                            <div class="img"><img src="{{ url_for('static', filename='image/education.png') }}" alt=""></div>
                             <div class="comming_soon"> </div>
-                            <div class="comming_button"><img src="assets/image/lock.png" alt=""> Coming Soon...</div>
+                            <div class="comming_button"><img src="{{ url_for('static', filename='image/lock.png') }}" alt=""> Coming Soon...</div>
                         </div>
                     </a>
                 </div>
@@ -163,9 +170,10 @@
                     <a href="">
                         <div class="card">
                             <div class="content"> resources sharing / equipments</div>
-                            <div class="img"><img src="https://cdn-icons-png.flaticon.com/512/1681/1681286.png" alt=""></div>
+                            <div class="img"><img src="https://cdn-icons-png.flaticon.com/512/1681/1681286.png" alt="">
+                            </div>
                             <div class="comming_soon"> </div>
-                            <div class="comming_button"><img src="assets/image/lock.png" alt=""> Coming Soon...</div>
+                            <div class="comming_button"><img src="{{ url_for('static', filename='image/lock.png') }}" alt=""> Coming Soon...</div>
                         </div>
                     </a>
                 </div>
@@ -191,8 +199,8 @@
             });
         </script>
     </div>
-    
-  <div id="footer"></div>
+
+    {% include 'footer.html'%}
     <script>
         window.addEventListener('scroll', function () {
             var topBar = document.querySelector('.top_bar');
@@ -206,8 +214,8 @@
             }
         });
     </script>
-    <script src="jquery.js"></script> 
-    
+    <script src="jquery.js"></script>
+
 </body>
 
 </html>
