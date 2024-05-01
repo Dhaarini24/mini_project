@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soil Fertility Prediction</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='stylesheets/style.css')}}">
+    <style>
+        body {
+            background-image: url("img3.jpg"); 
+            background-size: cover;
+            color: #7dbeb8; 
+            font-size: 18px;
+        
+        }
+       
+        input {
+            margin-bottom: 10px;
+            background-color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            color: #77B0AA;
+            width: 400px;
+            margin-left: 50px; /* Add this line to move the text boxes to the right */
+        }
+        .class1 {
+            column-count: 2;
+        }
+        .heading{
+            margin: 110px 0 40px 0;
+        }
+    </style>
+</head>
+<body>
+    {%include 'header.html'%}
+    <h1 class="heading"><center>Soil Fertility Prediction</center></h1>
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict_fertility') }}" method="post">
+        <div class="class1">
+            <input type="text" name="NO3" placeholder="NO3(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="NH4" placeholder="NH4(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="P" placeholder="P(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="SO4" placeholder="SO4(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="K" placeholder="K(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="B" placeholder="B(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="Organic_Matter" placeholder="Organic Matter(%age)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="pH" placeholder="pH(pH)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="Zn" placeholder="Zn(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="Cu" placeholder="Cu(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="Fe" placeholder="Fe(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="Ca" placeholder="Ca(meq/100g)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="Mg" placeholder="Mg(meq/100g)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+            <input type="text" name="Na" placeholder="Na(meq/100g)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+        </div>
+        <button type="submit">Predict</button>
+    </form>
+    {%include 'footer.html' %}
+</body>
+</html>

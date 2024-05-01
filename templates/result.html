@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Soil Fertility Prediction</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheets/style.css')}}">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+      display: flex;
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+
+    .column {
+      flex: 50%;
+      padding: 5px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #cccccc;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      height: 80px;
+      width: 160px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    body {
+      background: #E3FEF7;
+      color: black;
+      font-size: 18px;
+
+    }
+
+    .heading {
+      margin: 110px 0 0 0;
+    }
+  </style>
+</head>
+
+<body>
+  {%include 'header.html'%}
+  <h1 class="heading">
+    <center>Results</center>
+  </h1>
+  <form action="{{ url_for('predict_fertility')}}" method="post">
+    <h2>
+      <center>Soil Fertility is (In percentage): {{prediction_text}}</center>
+    </h2>
+    <h3>
+      <center>{{content}}</center>
+    </h3>
+    <h3>
+      <center>Your soil fertility percentage is {{prediction_text}}%. It indicates these values of nutrients are
+        sufficient for growing {{prediction_text}}% of plants in your soil.<center>
+    </h3>
+    <div class="row">
+      <div class="column">
+        <table style="margin-left: auto; margin-right: auto;">
+          <thead>
+            <tr>
+              <th style="height:30px;width:200px">Nutrient</th>
+              <th style="height:30px;width:350px">Nutrient which will increase</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NO3</td>
+              <td>K, NH4, SO4, Organic Matter, Ca, Zn</td>
+            </tr>
+            <tr>
+              <td>P</td>
+              <td>Organic Matter, Fe, Ca, K, Cu, SO4</td>
+            </tr>
+            <tr>
+              <td>K</td>
+              <td>SO4, Mg, Na, Organic Matter, NO3, NH4</td>
+            </tr>
+            <tr>
+              <td>Zn</td>
+              <td>P, K, NH4, SO4, Organic Matter, NO3</td>
+            </tr>
+            <tr>
+              <td>Fe</td>
+              <td>Cu, B, Mg, Organic Matter,Na ,K</td>
+            </tr>
+            <tr>
+              <td>Organic Matter</td>
+              <td>Ma, Ca, B, K, P, NH4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+      {%include 'footer.html' %}
+</body>
+
+</html>
