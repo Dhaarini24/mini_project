@@ -92,6 +92,19 @@
             loadGoogleTranslate();
         }
     </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var topBar = document.querySelector('.top_bar');
+            var bottomBar = document.querySelector('.bottom_bar');
+            if (window.scrollY > 120) {
+                topBar.style.display = 'none';
+                bottomBar.classList.add('sticky');
+            } else {
+                topBar.style.display = 'flex';
+                bottomBar.classList.remove('sticky');
+            }
+        });
+    </script>
 </body>
 
 </html>

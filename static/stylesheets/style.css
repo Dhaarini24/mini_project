@@ -252,7 +252,7 @@ marquee span {
     align-items: center;
     border-radius: 20px;
     width: 280px;
-    height: 220px;
+    height: 250px;
 
 }
 
@@ -273,7 +273,7 @@ marquee span {
 .comming_soon {
     border-radius: 20px;
     width: 280px;
-    height: 220px;
+    height: 250px;
     background-color: #003C43;
     opacity: 58%;
     position: absolute;

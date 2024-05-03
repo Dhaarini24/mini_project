@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template,redirect
 import pandas as pd
 import pickle
 import numpy as np
@@ -8,7 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 import os
-
+from openpyxl import Workbook,load_workbook
 app = Flask(__name__)
 
 class SoilFertilityPredictor:
@@ -76,7 +76,7 @@ class_labels = ['apple', 'banana', 'blackgram', 'chickpea', 'coconut', 'coffee',
                 'mango', 'mothbeans', 'mungbean', 'muskmelon', 'orange', 'papaya',
                 'pigeonpeas', 'pomegranate', 'rice', 'watermelon']
 
-model = load_model('model.h5')
+model_dis = load_model('model.h5')
 IMAGE_SIZE = 64
 
 def read_and_resize_image(filepath, image_size):
@@ -88,7 +88,7 @@ def read_and_resize_image(filepath, image_size):
 def predict_disease(image_path):
     input_image = read_and_resize_image(image_path, IMAGE_SIZE)
     input_image = np.expand_dims(input_image, axis=0)
-    predictions = model.predict(input_image)
+    predictions = model_dis.predict(input_image)
     predicted_class_index = np.argmax(predictions)
     disease_class = ['Pepper__bell___Bacterial_spot', 'Pepper__bell___healthy', 'Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy', 'Tomato_Bacterial_spot', 'Tomato_Early_blight', 'Tomato_Late_blight', 'Tomato_Leaf_Mold', 'Tomato_Septoria_leaf_spot', 'Tomato_Spider_mites_Two_spotted_spider_mite', 'Tomato__Target_Spot', 'Tomato__Tomato_YellowLeaf__Curl_Virus', 'Tomato__Tomato_mosaic_virus', 'Tomato_healthy']
     predicted_disease = disease_class[predicted_class_index]
@@ -183,5 +183,30 @@ def process_image():
 @app.route('/Comming_soon')
 def comming_soon():
     return render_template('comming_soon.html')
+
+try:
+    wb = load_workbook('form_data.xlsx')
+    ws = wb.active
+except FileNotFoundError:
+    wb = Workbook()
+    ws = wb.active
+    # Add column headers
+    ws.append(['Name', 'Email', 'Message'])
+    wb.save('form_data.xlsx')
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+  if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['mail']
+        message = request.form['text']
+
+        # Append data to Excel file
+        ws.append([name, email, message])
+        wb.save('form_data.xlsx')
+        return redirect('/thank_you')
+    
+@app.route('/thank_you')
+def thank_you():
+    return 'Thank you for your submission!'
 if __name__ == '__main__':
     app.run(debug=True)
