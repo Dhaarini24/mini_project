@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Test</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+    <link rel="stylesheet" href="{{url_for('static',filename='stylesheets/style.css')}}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #033a3a;
+        }
+        h1 {
+            color: #E3FEF7;
+            margin:110px 0;
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        button[type="submit"] {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        img#preview {
+            max-width: 100%;
+            margin-top: 10px;
+        }
+        #predictionResult {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {%include 'header.html'%}
+    <h1>Test for Disease</h1>
+    <form action="{{ url_for('process_image') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <div>
+            <label for="imageUpload">Upload an Image:</label>
+            <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
+        </div>
+        <div>
+            <img id="preview" src="#" alt="Image Preview" style="max-width: 300px; max-height: 300px;">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <div id="predictionResult" style="margin-top: 20px; font-weight: bold;"></div>
+
+    <script>
+        function previewImage(event) {
+            var preview = document.getElementById('preview');
+            preview.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function validateForm() {
+            var fileInput = document.getElementById('imageUpload');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please upload an image file (jpg, jpeg, png, gif)!');
+                fileInput.value = '';
+                return false;
+            }
+            return true;
+        }
+
+        document.getElementById('imageUpload').addEventListener('change', previewImage);
+    </script>
+</body>
+</html>

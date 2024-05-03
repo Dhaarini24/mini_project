@@ -2,9 +2,13 @@ from flask import Flask, request, jsonify, render_template
 import pandas as pd
 import pickle
 import numpy as np
+import cv2
+from keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
+import os
+
 app = Flask(__name__)
 
 class SoilFertilityPredictor:
@@ -72,6 +76,24 @@ class_labels = ['apple', 'banana', 'blackgram', 'chickpea', 'coconut', 'coffee',
                 'mango', 'mothbeans', 'mungbean', 'muskmelon', 'orange', 'papaya',
                 'pigeonpeas', 'pomegranate', 'rice', 'watermelon']
 
+model = load_model('model.h5')
+IMAGE_SIZE = 64
+
+def read_and_resize_image(filepath, image_size):
+    img = cv2.imread(filepath)
+    resized_img = cv2.resize(img, (image_size, image_size))
+    resized_img = resized_img.astype('float32') / 255.0
+    return resized_img
+
+def predict_disease(image_path):
+    input_image = read_and_resize_image(image_path, IMAGE_SIZE)
+    input_image = np.expand_dims(input_image, axis=0)
+    predictions = model.predict(input_image)
+    predicted_class_index = np.argmax(predictions)
+    disease_class = ['Pepper__bell___Bacterial_spot', 'Pepper__bell___healthy', 'Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy', 'Tomato_Bacterial_spot', 'Tomato_Early_blight', 'Tomato_Late_blight', 'Tomato_Leaf_Mold', 'Tomato_Septoria_leaf_spot', 'Tomato_Spider_mites_Two_spotted_spider_mite', 'Tomato__Target_Spot', 'Tomato__Tomato_YellowLeaf__Curl_Virus', 'Tomato__Tomato_mosaic_virus', 'Tomato_healthy']
+    predicted_disease = disease_class[predicted_class_index]
+    return predicted_disease
+
 @app.route('/')
 def index():
     return render_template('landing.html', header='templates\header.html', footer='templates/footer.html')
@@ -130,5 +152,36 @@ def predict_fertility():
     result_text = predictor.evaluate_fertility(prediction, nutrient_values)
     prediction_percentage = int(round(prediction))
     return render_template('result.html', prediction=prediction_percentage,result_text=result_text, prediction_text=prediction_percentage)
+
+@app.route('/disease')
+def disease():
+    return render_template('disease.html')
+
+@app.route('/process_image', methods=['POST'])
+def process_image():
+    if 'imageUpload' not in request.files:
+        return "No file uploaded", 400
+
+    file = request.files['imageUpload']
+    if file.filename == '':
+        return "No selected file", 400
+
+    # Create the uploads directory if it doesn't exist
+    upload_dir = os.path.join(app.root_path, 'uploads')
+    os.makedirs(upload_dir, exist_ok=True)
+
+    # Save the uploaded file to the uploads directory
+    upload_path = os.path.join(upload_dir, file.filename)
+    file.save(upload_path)
+
+    # Get the predicted disease
+    predicted_disease = predict_disease(upload_path)
+
+    # Render the result template with prediction and image path
+    return render_template('Disease_result.html', predicted_disease=predicted_disease, image_path=upload_path)
+
+@app.route('/Comming_soon')
+def comming_soon():
+    return render_template('comming_soon.html')
 if __name__ == '__main__':
     app.run(debug=True)

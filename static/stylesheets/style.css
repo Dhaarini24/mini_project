@@ -82,7 +82,7 @@ header .top_bar span button {
 header .bottom_bar {
     position: fixed;
     transition: all 0.4s ease-in-out;
-    top: 38px;
+    top: 42px;
     left: 0;
     width: 100%;
     margin: 2px 0;
@@ -699,4 +699,29 @@ svg {
         margin-left: 0;
     }
 
+}
+.feature_soon{
+    margin: 120px 0 0 0;
+    height: 45vh;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #003C43;
+    background-color: #E3FEF7;
+}
+.goog-te-gadget{
+    font-size: 0px!important;
+}
+.VIpgJd-ZVi9od-l4eHX-hSRGPd{
+    display: none!important;
+}
+.lang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none!important;
 }

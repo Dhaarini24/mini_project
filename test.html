@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Translate Example</title>
+</head>
+<body>
+    <p>Hi my name is sri and i am a good boy</p>
+    <!-- Container element for Google Translate widget -->
+    <div id="google_translate_element"></div>
+
+    <!-- Load Google Translate script -->
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+
+    <!-- Callback function to initialize Google Translate widget -->
+    <script>
+        function loadGoogleTranslate() {
+            var storedLanguage = localStorage.getItem('selectedLanguage');
+            var defaultLanguage = storedLanguage || 'en'; // Default language is 'en' if no language is stored
+
+            new google.translate.TranslateElement({
+                pageLanguage: defaultLanguage, // Set the default language
+                autoDisplay: false, // Do not display the widget automatically
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL // Set the layout
+            }, 'google_translate_element');
+
+            // Set event listener for language change
+            googleTranslateElementInit = function() {
+                new google.translate.TranslateElement({
+                    pageLanguage: defaultLanguage,
+                    includedLanguages: 'en,fr,es', // Specify the languages to be included in the dropdown
+                    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+                }, 'google_translate_element');
+            }
+
+            // Function to handle language change event
+            function changeLanguage(selectedLanguage) {
+                localStorage.setItem('selectedLanguage', selectedLanguage);
+            }
+        }
+
+        // Check if the Google Translate API is loaded
+        if (typeof google !== 'undefined') {
+            loadGoogleTranslate();
+        }
+    </script>
+</body>
+</html>
