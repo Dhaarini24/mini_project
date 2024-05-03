@@ -208,5 +208,9 @@ def submit_form():
 @app.route('/thank_you')
 def thank_you():
     return 'Thank you for your submission!'
+
+@app.route('/about_us')
+def about_us():
+    return render_template("about.html")
 if __name__ == '__main__':
     app.run(debug=True)

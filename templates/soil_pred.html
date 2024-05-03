@@ -1,58 +1,375 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Soil Fertility Prediction</title>
     <link rel="stylesheet" href="{{url_for('static',filename='stylesheets/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+
     <style>
         body {
-            background-image: url("img3.jpg"); 
-            background-size: cover;
-            color: #7dbeb8; 
-            font-size: 18px;
-        
+
+            background-color: #E3FEF7;
+            /* Lightest color for the background */
+            color: #003C43;
+            /* Darkest color for text */
+            padding: 20px;
         }
-       
-        input {
-            margin-bottom: 10px;
-            background-color: white;
+
+        form button {
+            background-color: #135D66;
+            /* Dark cyan for buttons */
+            margin: 20px 0 0 0;
+            color: white;
+            padding: 10px 15px;
             border: none;
+            border-radius: 5px;
+            width: 100px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #003C43;
+            /* Darkest color for hover state */
+        }
+
+        form {
+            background-color: #77B0AA;
+            /* Moderate cyan for the form background */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin: 20px auto;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 96%;
+            /* Full width minus padding and border */
             padding: 10px;
+            margin: 10px 10px 0 10px;
+            display: inline-block;
+            border: 1px solid #003C43;
+            /* Dark border for inputs */
             border-radius: 4px;
-            color: #77B0AA;
-            width: 400px;
-            margin-left: 50px; /* Add this line to move the text boxes to the right */
+            box-sizing: border-box;
         }
-        .class1 {
-            column-count: 2;
+
+        .heading {
+
+            margin: 20px 0 20px 0;
+
+
+
         }
-        .heading{
-            margin: 110px 0 40px 0;
+
+        label {
+            font-weight: bold;
+            color: #135D66;
+
+            /* Dark cyan for labels */
         }
+
+        .input-row {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        h1,
+        h2 {
+            color: #003C43;
+            /* Darkest color for headers */
+        }
+
+        .input-row {
+            margin-bottom: 20px;
+        }
+
+        .input-row label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-row {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .input-container {
+            flex: 1;
+        }
+
+        .tips {
+            margin: 120px 0 0 0;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+        .tips span {
+
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .tips p{
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+        .card p{
+            font-size: 1.3rem;
+        }
+        .card {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 40px;
+            background-color: #135D66;
+            color: #E3FEF7;
+            width: 100%;
+            height: 25vh;
+        }
+
+        .card-header {
+            width: 10%;
+            text-align: center;
+            font-family: "Katibeh", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 42px;
+            color: #E3FEF7;
+        }
+
+        .card-body {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 30px;
+        }
+
+        .card-body img {
+            width: 250px;
+            height: 150px;
+            border-radius: 12px;
+        }
+        ul {
+            
+            padding: 0;
+            margin: 0 0 0 50px;
+        }
+        li{
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+              
     </style>
 </head>
+
 <body>
     {%include 'header.html'%}
-    <h1 class="heading"><center>Soil Fertility Prediction</center></h1>
+    
+    <div class="tips">
+        <span>Soil Health Test Sampling Instructions</span>
+
+        <p>When submitting soil samples to Laboratories (PEIAL) for the Soil Health testing, it is recommended that you
+            follow these soil sampling guidelines to ensure that your sample is representative of your field conditions.
+            Read the instructions carefully before sampling to ensure you collect the proper amount of soil for the
+            various testing packages.</p>
+
+        <h2>Materials Required:</h2>
+        <ul>
+            <li>Small spade or shovel</li>
+            <li>5-gallon pail</li>
+            <li>Soil Health sample bag (brown- holds approx. 4 cups)</li>
+            <li>Soil Nutrient sample bag (white- holds approx. 2 cups)</li>
+            <li>Cooler (if applicable)</li>
+        </ul>
+        <div class="card" data-aos="zoom-out-right"  data-aos-duration="1500">
+            <div class="card-header">
+                Step 1
+            </div>
+            <div class="card-body">
+                <p>Clear a small area for sampling within the field by removing any surface plant or crop residues. Be
+                    careful to not remove a large amount of soil from the surface while removing plant debris as this
+                    may skew results.</p>
+                <img src="static\image\step1.jpeg" alt="Step 1 Image">
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-out-left"  data-aos-duration="1500">
+            <div class="card-header">
+                Step 2
+            </div>
+            <div class="card-body">
+                <p>Dig a small hole approximately 9-10” deep, while maintaining a smooth “wall” along one side of the
+                    hole so that it is vertically level.</p>
+                <img src="static\image\about.png" alt="Step 1 Image">
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-out-right"  data-aos-duration="1500">
+            <div class="card-header">
+                Step 3
+            </div>
+            <div class="card-body">
+                <p> From the smoothed-out area, remove a small cross section of soil approximately 2” wide and 7-8” deep
+                    (or to desired depth of crop’s living roots). Maintain even thickness throughout the cross section
+                    as you push spade into soil.</p>
+                <img src="static\image\about.png" alt="Step 1 Image">
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-out-left"  data-aos-duration="1500">
+            <div class="card-header">
+                Step 4
+            </div>
+            <div class="card-body">
+                <p> Place the soil sample into a pail, and repeat steps 1 to 3 until enough samples have been obtained
+                    for the sampling area.
+                    Please Note: Areas that are not representative of the field should not be included for sampling
+                    unless they are to be assessed as a separate sample. This includes areas that are
+                    uncharacteristically wet, boggy, low/high spots, particularly rocky areas, or sections that have
+                    been managed differently than the rest of the field.</p>
+                <img src="static\image\about.png" alt="Step 1 Image">
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-out-right"  data-aos-duration="1500">
+            <div class="card-header">
+                Step 5
+            </div>
+            <div class="card-body">
+                <p> Mix soil in pail, then place 4 cups in a labeled health sample bag with ID, date, and client name.
+                    Also, put 2 cups in a nutrient analysis bag with the same ID. Submitting for both soil health and
+                    chemistry packages provides a comprehensive assessment. Split samples for soil health analysis (SH1,
+                    SH2, SH3) into one large and one small bag.</p>
+                <img src="static\image\about.png" alt="Step 1 Image">
+            </div>
+        </div>
+
+        <div class="card" data-aos="zoom-out-left"  data-aos-duration="1500">
+            <div class="card-header">
+                Step 6
+            </div>
+            <div class="card-body">
+                <p> Place soil samples in a cool, shaded area (avoid direct sunlight), and deliver to lab as soon as
+                    possible. If samples cannot be delivered to the lab within 24 hours, refrigerate or place in a cool
+                    area
+                    and submit to the PEIAL as soon as possible. Do not freeze sample or allow sample to dry out.
+                    Submission
+                    forms for soil health and soil nutrient analysis can be found at PEI Analytical Laboratory website.
+                </p>
+                <img src="static\image\about.png" alt="Step 1 Image">
+            </div>
+        </div>
+    </div>
+    <h1 class="heading">
+        <h1>
+            <center> Soil Fertility Prediction</center>
+        </h1>
+    </h1>
     <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict_fertility') }}" method="post">
-        <div class="class1">
-            <input type="text" name="NO3" placeholder="NO3(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="NH4" placeholder="NH4(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="P" placeholder="P(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="SO4" placeholder="SO4(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="K" placeholder="K(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="B" placeholder="B(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="Organic_Matter" placeholder="Organic Matter(%age)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="pH" placeholder="pH(pH)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="Zn" placeholder="Zn(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="Cu" placeholder="Cu(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="Fe" placeholder="Fe(ppm)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="Ca" placeholder="Ca(meq/100g)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="Mg" placeholder="Mg(meq/100g)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
-            <input type="text" name="Na" placeholder="Na(meq/100g)" required="required" size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only"/><br>
+        <div class="input-row">
+            <div class="input-container">
+                <label for="NO3">NO3(ppm)</label>
+                <input type="text" name="NO3" id="NO3" required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+            <div class="input-container">
+                <label for="NH4">NH4(ppm)</label>
+                <input type="text" name="NH4" id="NH4"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
         </div>
+        <div class="input-row">
+            <div class="input-container">
+                <label for="P">P(ppm)</label>
+                <input type="text" name="P" id="P"  required size="50" pattern="[0-9]+([.,][0-9]+)?"
+                    title="Please enter numbers only" /><br>
+            </div>
+            <div class="input-container">
+                <label for="SO4">SO4(ppm)</label>
+                <input type="text" name="SO4" id="SO4"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-container">
+                <label for="K">K(ppm)</label>
+                <input type="text" name="K" id="K" required size="50" pattern="[0-9]+([.,][0-9]+)?"
+                    title="Please enter numbers only" /><br>
+            </div>
+            <div class="input-container">
+                <label for="B">B(ppm)</label>
+                <input type="text" name="B" id="B"  required size="50" pattern="[0-9]+([.,][0-9]+)?"
+                    title="Please enter numbers only" /><br>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <div class="input-container">
+                <label for="Organic_Matter">Organic Matter(%age)</label>
+                <input type="text" name="Organic_Matter" id="Organic_Matter"  required
+                    size="50" pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+            <div class="input-container">
+                <label for="pH">pH(pH)</label>
+                <input type="text" name="pH" id="pH"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-container">
+                <label for="Zn">Zn(ppm)</label>
+                <input type="text" name="Zn" id="Zn"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+            <div class="input-container">
+                <label for="Cu">Cu(ppm)</label>
+                <input type="text" name="Cu" id="Cu"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <div class="input-container">
+                <label for="Fe">Fe(ppm)</label>
+                <input type="text" name="Fe" id="Fe"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+            <div class="input-container">
+                <label for="Ca">Ca(meq/100g)</label>
+                <input type="text" name="Ca" id="Ca"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-container">
+                <label for="Mg">Mg(meq/100g)</label>
+                <input type="text" name="Mg" id="Mg"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+            <div class="input-container">
+                <label for="Na">Na(meq/100g)</label>
+                <input type="text" name="Na" id="Na"  required size="50"
+                    pattern="[0-9]+([.,][0-9]+)?" title="Please enter numbers only" /><br>
+            </div>
+        </div>
+
+
         <button type="submit">Predict</button>
     </form>
     {%include 'footer.html' %}
+    <script>AOS.init();</script> 
 </body>
+
 </html>

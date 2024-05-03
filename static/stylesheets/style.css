@@ -121,7 +121,7 @@ header .bottom_bar .nav ul {
 
 .hero_section span {
     margin: 0 40px;
-    width: 624px;
+
     text-shadow: 2px 2px 4px #000000;
     color: #E3FEF7;
     font-family: "Katibeh", serif;
@@ -570,7 +570,7 @@ svg {
 }
 
 .footer-distributed .footer-company-name {
-    color: #222;
+    color: #E3FEF7;
     font-size: 14px;
     font-weight: normal;
     margin: 0;
@@ -616,7 +616,7 @@ svg {
 }
 
 .footer-distributed .footer-center p a {
-    color: lightseagreen;
+
     text-decoration: none;
     ;
 }
@@ -643,7 +643,7 @@ svg {
 
 .footer-distributed .footer-company-about {
     line-height: 20px;
-    color: #92999f;
+    color: #E3FEF7;
     font-size: 13px;
     font-weight: normal;
     margin: 0;
@@ -725,3 +725,90 @@ svg {
 .VIpgJd-ZVi9od-ORHb-OEVmcd {
     display: none!important;
 }
+
+/* about_us */
+.column-custom {
+  
+    float: left;
+    width: 25%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  .card-custom {
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    padding: 10px;
+    background-color: #77B0AA;
+    border-radius: 16px;
+    color: #E3FEF7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .card-custom img{
+    width: 220px;
+    height: 200px;
+    vertical-align: middle; 
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .about-section-custom {
+    margin: 110px 0 0 0;
+    background: #E3FEF7;
+    color: #003C43;
+    padding: 50px;
+    text-align: center;
+   
+  }
+  
+  .about-section-custom p{
+    font-size: 1.3rem;
+    line-height: 40px;
+    text-align: justify;
+  }
+  .about-section-custom h1{
+    margin: 15px 0;
+  }
+  .container-custom {
+    padding: 0 16px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+  
+  .container-custom::after, .row-custom::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title-custom {
+    color: #E3FEF7;
+  }
+  
+  .button-custom {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button-custom:hover {
+    background-color: #555;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column-custom {
+      width: 100%;
+      display: block;
+    }
+  }
+  
