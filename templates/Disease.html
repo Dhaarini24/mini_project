@@ -8,29 +8,37 @@
     <link rel="stylesheet" href="{{url_for('static',filename='stylesheets/style.css')}}">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          
+            gap: 20px;
+            height: 70vh;
             padding: 20px;
-            background-color: #033a3a;
+            background-color: #E3FEF7;
         }
         h1 {
-            color: #E3FEF7;
-            margin:110px 0;
+            color: #008080;
+            margin:110px 0 0px 0;
             text-align: center;
         }
         form {
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            display: flex;
+                flex-direction: column;
+                gap: 20px;
             border-radius: 5px;
-            background-color: #f9f9f9;
+           
         }
         label {
             font-weight: bold;
             color: #333;
+            margin: 0 0 20px 0;
         }
         input[type="file"] {
-            margin-top: 5px;
+            margin-top: 20px;
         }
         button[type="submit"] {
             margin-top: 10px;
@@ -50,11 +58,22 @@
             margin-top: 20px;
             font-weight: bold;
         }
+       .container_dis{
+        background-color: #E3FEF7;
+        border-radius: 12px;
+        border: 5px solid #008080;
+        width: 40%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+       }
     </style>
 </head>
 <body>
     {%include 'header.html'%}
+    <div class="container_dis">
     <h1>Test for Disease</h1>
+    
     <form action="{{ url_for('process_image') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
         <div>
             <label for="imageUpload">Upload an Image:</label>
@@ -67,8 +86,9 @@
             <button type="submit">Submit</button>
         </div>
     </form>
-
+</div>
     <div id="predictionResult" style="margin-top: 20px; font-weight: bold;"></div>
+    
 
     <script>
         function previewImage(event) {
