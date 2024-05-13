@@ -4,6 +4,7 @@ import pickle
 import numpy as np
 import cv2
 from keras.models import load_model
+
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
@@ -76,7 +77,7 @@ class_labels = ['apple', 'banana', 'blackgram', 'chickpea', 'coconut', 'coffee',
                 'mango', 'mothbeans', 'mungbean', 'muskmelon', 'orange', 'papaya',
                 'pigeonpeas', 'pomegranate', 'rice', 'watermelon']
 
-model_dis = load_model('my_model.h5')
+model_dis =load_model('my_model.h5')
 IMAGE_SIZE = 64
 
 def read_and_resize_image(filepath, image_size):
